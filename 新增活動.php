@@ -143,7 +143,7 @@ include 'link.php';
                             </div>   
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="act_organizer" name="act_organizer" placeholder="主題" required>
+                                    <input type="text" class="form-control" id="act_organizer" name="act_organizer" placeholder="主題">
                                     <label >承辦單位</label>
                                 </div>
                             </div>
