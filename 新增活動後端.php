@@ -16,15 +16,23 @@
     $act_contact=$_POST['act_contact'];
     $act_detail=$_POST['act_detail'];
     $option_length=$_POST["options"];
-    $act_type="";
-    for ($i=0; $i <sizeof($option_length) ; $i++) { 
-      echo $option_length[$i];
-      $act_type=$act_type." ".$option_length[$i];
-    }
+    // $act_type=$_POST["act_type"];
+    $act_type1=$_POST["act_type1"];
+    $act_type2=$_POST["act_type2"];
+    $act_type3=$_POST["act_type3"];
+    $act_type4=$_POST["act_type4"];
+    $act_type5=$_POST["act_type5"];
+    $act_type6=$_POST["act_type6"];
+    $act_type7=$_POST["act_type7"];
+    // $act_type="";
+    // for ($i=0; $i <sizeof($option_length) ; $i++) { 
+    //   echo $option_length[$i];
+    //   $act_type=$act_type." ".$option_length[$i];
+    // }
     $_SESSION["act_id"]=$act_id;
    
-    $sql  = "insert into activity (act_id, act_category, act_state, act_presenter, act_name, act_signup, act_signdue, act_organizer, act_coorganizer, act_fee, act_way, act_people, act_contact, act_detail, act_type) 
-    values ('$act_id', '$act_category','尚未開放報名', '$act_presenter', '$act_name', '$act_signup', '$act_signdue', '$act_organizer', '$act_coorganizer', '$act_fee', '$act_way', '$act_people', '$act_contact', '$act_detail', '$act_type')";
+    $sql  = "insert into activity (act_id, act_category, act_state, act_presenter, act_name, act_signup, act_signdue, act_organizer, act_coorganizer, act_fee, act_way, act_people, act_contact, act_detail, act_type1, act_type2, act_type3, act_type4, act_type5, act_type6, act_type7) 
+    values ('$act_id', '$act_category','$act_state', '$act_presenter', '$act_name', '$act_signup', '$act_signdue', '$act_organizer', '$act_coorganizer', '$act_fee', '$act_way', '$act_people', '$act_contact', '$act_detail', '$act_type1', '$act_type2', '$act_type3', '$act_type4', '$act_type5', '$act_type6', '$act_type7')";
 
     if(mysqli_query($link,$sql))
          {
@@ -37,11 +45,11 @@
           }
         else
           {
-            // echo $sql;
+            echo $sql;
             ?>
         <script>
-            alert('新增失敗!');
-            history.back();
+            // alert('新增失敗!');
+            // history.back();
             </script>
             <?php
           }

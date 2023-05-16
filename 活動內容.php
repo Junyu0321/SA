@@ -154,7 +154,13 @@
                                 </li>
                                 <li><b>社會適應能力</b>
                                     <blockquote>
-                                        <?php echo $row["act_type"] ?>
+                                        <?php echo $row["act_type1"] ?>
+                                        <?php echo $row["act_type2"] ?>
+                                        <?php echo $row["act_type3"] ?>
+                                        <?php echo $row["act_type4"] ?>
+                                        <?php echo $row["act_type5"] ?>
+                                        <?php echo $row["act_type6"] ?>
+                                        <?php echo $row["act_type7"] ?>
                                     </blockquote>
                                 </li>
                                 <li><b>活動費用</b>

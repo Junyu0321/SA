@@ -182,11 +182,16 @@ include 'link.php';
                                       </select>
                                 </div>
                                 
-                                    <!-- <div class="col-md-12" >
+                                    <div class="col-md-12" >
                                         <div group = >
                                             <label for="exampleSelectGender">報名狀態：</label>
+                                            <select class="form-control" id="act_state" name="act_state" required>
+                                                <option>尚未開放報名</option>
+                                                <option>開放報名中</option>
+                                                <option>已結束報名</option>
+                                            </select>
                                         </div> 
-                                    </div> -->
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" id="act_people" name="act_people" placeholder="主題" required>
@@ -207,44 +212,44 @@ include 'link.php';
                                     </div>
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option1" name="options[]" value="問題分析與解決行為">
+                                        <input type="checkbox" id="act_type1" name="act_type1" value="問題分析與解決行為">
                                         <label for="option1">問題分析與解決行為</label>
                                     </div>
                                 </div>
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option2" name="options[]" value="創新能力">
+                                        <input type="checkbox" id="act_type2" name="act_type2" value="創新能力">
                                         <label for="option2">創新能力</label>
                                     </div>
                                 </div>
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option3" name="options[]" value="溝通能力">
+                                        <input type="checkbox" id="act_type3" name="act_type3" value="溝通能力">
                                         <label for="option3">溝通能力</label>
                                     </div>
                                     </div>
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option4" name="options[]" value="應變能力">
+                                        <input type="checkbox" id="act_type4" name="act_type4" value="應變能力">
                                         <label for="option4">應變能力</label>
                                     </div>
                                 </div>
                                     
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option5" name="options[]" value="規劃能力">
+                                        <input type="checkbox" id="act_type5" name="act_type5" value="規劃能力">
                                         <label for="option5">規劃能力</label>
                                     </div>
                                 </div>
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option6" name="options[]" value="整合與善用資源能力">
+                                        <input type="checkbox" id="act_type6" name="act_type6" value="整合與善用資源能力">
                                         <label for="option6">整合與善用資源能力</label>
                                     </div>
                                 </div>
                                     <div class="form-floating">
                                         <div group = >
-                                        <input type="checkbox" id="option7" name="options[]" value="團結合作能力">
+                                        <input type="checkbox" id="act_type7" name="act_type7" value="團結合作能力">
                                         <label for="option7">團結合作能力</label>
                                     </div>
                                 </div>
