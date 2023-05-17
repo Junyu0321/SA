@@ -131,7 +131,7 @@ include 'link.php';
                             </div>
                             <div class="col-md-12">
                                 <div class="form-floating">
-                                    <input type="datetime-local" class="form-control" id="act_signup" name="act_signup" placeholder="主題" required>
+                                    <input type="datetime-local" class="form-control" id="act_signup" name="act_signup"     placeholder="主題" required>
                                     <label >開始報名時間</label>
                                 </div>
                             </div>

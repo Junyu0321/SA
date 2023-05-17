@@ -198,6 +198,7 @@ include 'link.php';
                                         <option <?php if ($row["act_category"] == "尚未開放報名") echo "selected"; ?>>尚未開放報名</option>
                                         <option <?php if ($row["act_category"] == "開放報名中") echo "selected"; ?>>開放報名中</option>
                                         <option <?php if ($row["act_category"] == "已結束報名") echo "selected"; ?>>已結束報名</option>
+                                        <option <?php if ($row["act_category"] == "活動已取消") echo "selected"; ?>>活動取消</option>
                                     </select>
 
                                 </div>
@@ -285,6 +286,12 @@ include 'link.php';
 
                                     <div class="col-12 text-center">
                                         <button class="btn btn-primary rounded-pill py-3 px-5" type="submit" id="myButton">提交</button>
+                                        <form action="修改活動後端.php" method="get">
+                                                <input type=hidden name=decision value=cancel>
+                                                <input type="hidden" name="act_id" value="<?php echo $act_id; ?>">
+                                                <button type="submit" name="cancel_activity" class="btn btn-danger rounded-pill py-3 px-5">取消活動</button>
+                                            </form>
+
                                     </div>
                                 </div>
                             </form>
@@ -297,7 +304,7 @@ include 'link.php';
 
        
     </form>
-   
+  
 </div>
 </div>
 </div>

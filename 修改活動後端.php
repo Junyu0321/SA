@@ -19,6 +19,21 @@
             for ($i=0; $i <sizeof($option_length) ; $i++) { 
               $act_type=$act_type." ".$option_length[$i];
             }
+            if($_GET['decision']=='cancel'){
+              $sql = "UPDATE activity SET act_state = '活動取消' WHERE act_id = $act_id";
+
+    if (mysqli_query($link, $sql)) {
+        exit("<script>
+            alert('修改成功');
+            location.href='瀏覽活動.php';
+        </script>");
+    } else {
+        exit("<script>
+            alert('修改失敗');
+            location.href='瀏覽活動.php';
+        </script>");
+    }
+            }
 
             $sql = "UPDATE activity SET act_category='$act_category', act_state='$act_state', act_presenter='$act_presenter', act_name='$act_name', act_signup='$act_signup', act_signdue='$act_signdue', act_organizer='$act_organizer', act_coorganizer='$act_coorganizer', act_fee='$act_fee', act_way='$act_way', act_people='$act_people', act_contact='$act_contact', act_detail='$act_detail', act_type='$act_type' WHERE act_id='$act_id'";
             if(mysqli_query($link,$sql)) {
