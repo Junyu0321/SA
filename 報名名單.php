@@ -129,7 +129,7 @@ include 'link.php';
                   <div class="card-body">
                     <h4 class="card-title">報名者名單</h4>
                     <div class="table-responsive">
-                    <form action="attendence.php"  method="post"> 
+                    <form action="簽到.php?"> 
                       <table class="table table-striped">
                         <button type="submit">點名</button>
                         <thead>
@@ -157,7 +157,6 @@ include 'link.php';
                                         while($row=mysqli_fetch_array($rs)){
                                   
                                         $num++;?>
-                                        
                                   <tr>
                                       <th scope="row"  width="10%"><?php echo $num;?></th>
                                       <td><?php echo $row["user_id"]?></td>
@@ -174,7 +173,7 @@ include 'link.php';
                                 <?php
                                 }?>
                                 <p class="card-description">
-                                報名人數：<?php echo $num;?>  &nbsp; 出席人數：0  &nbsp; 出席率：0 %
+                                報名人數：<?php echo $num;?>  &nbsp; 出席人數：<?php echo $count ?>  &nbsp; 出席率：<?php echo number_format($rate, 1); ?> %
                                 </p>
                         </tbody>
                        
