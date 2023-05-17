@@ -198,6 +198,7 @@ include 'link.php';
                                         <option <?php if ($row["act_category"] == "尚未開放報名") echo "selected"; ?>>尚未開放報名</option>
                                         <option <?php if ($row["act_category"] == "開放報名中") echo "selected"; ?>>開放報名中</option>
                                         <option <?php if ($row["act_category"] == "已結束報名") echo "selected"; ?>>已結束報名</option>
+                                
                                     </select>
 
                                 </div>
@@ -233,7 +234,7 @@ include 'link.php';
                                     </div>
                                     <div class="form-floating">
                                         <div group = >
-                                            <input type="checkbox" id="option1" name="options[]" value="問題分析與解決行為" <?php if ($row["act_type"] == "問題分析與解決行為"){?> checked <?php }?>>
+                                            <input type="checkbox" id="option1" name="options[]" value="問題分析與解決行為" <?php if($row["act_type"] == "問題分析與解決行為"){?> checked <?php }?>>
                                             <label for="option1">問題分析與解決行為</label>
                                         </div>
                                     </div>
@@ -283,8 +284,15 @@ include 'link.php';
                                         </div>
                                     </div>
 
-                                    <div class="col-12 text-center">
-                                        <button class="btn btn-primary rounded-pill py-3 px-5" type="submit" id="myButton">提交</button>
+                                   
+                                            <button type="submit" name="decision" value="cancel" class="btn btn-danger rounded-pill py-3 px-5">取消活動</button>
+                                          
+                                            <button type="submit" name="decision" value="adjust" class="btn btn-primary rounded-pill py-3 px-5">提交</button>
+                                           
+                                        </form>
+
+                                     
+
                                     </div>
                                 </div>
                             </form>
@@ -297,7 +305,7 @@ include 'link.php';
 
        
     </form>
-   
+  
 </div>
 </div>
 </div>

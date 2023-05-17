@@ -20,6 +20,8 @@
     $sql  = "insert into session (ses_id, ses_name, ses_start, ses_end, ses_location, ses_available, ses_number, act_id) 
     values ('$ses_id', '$ses_name', '$ses_start', '$ses_end', '$ses_location', '$ses_available', '$ses_number', '$act_id')";
     
+    echo $sql;
+
     if(mysqli_query($link,$sql))
          {
         ?>

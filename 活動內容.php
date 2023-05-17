@@ -5,7 +5,7 @@
  ?>
 <head>
     <meta charset="utf-8">
-    <title>Foody - Organic Food Website Template</title>
+    <title>輔大活動報名系統</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -154,7 +154,13 @@
                                 </li>
                                 <li><b>社會適應能力</b>
                                     <blockquote>
-                                        <?php echo $row["act_type"] ?>
+                                        <?php echo $row["act_type1"] ?>
+                                        <?php echo $row["act_type2"] ?>
+                                        <?php echo $row["act_type3"] ?>
+                                        <?php echo $row["act_type4"] ?>
+                                        <?php echo $row["act_type5"] ?>
+                                        <?php echo $row["act_type6"] ?>
+                                        <?php echo $row["act_type7"] ?>
                                     </blockquote>
                                 </li>
                                 <li><b>活動費用</b>
