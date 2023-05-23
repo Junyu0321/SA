@@ -174,7 +174,7 @@ include 'link.php';
                                 <?php
                                 }?>
                                 <p class="card-description">
-                                報名人數：<?php echo $num;?>  &nbsp; 出席人數：0  &nbsp; 出席率：0 %
+                                報名人數：<?php echo $num;?>  &nbsp; 出席人數：<?php echo $count ?>  &nbsp; 出席率：<?php echo number_format($rate, 1); ?> %
                                 </p>
                         </tbody>
                        

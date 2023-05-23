@@ -115,7 +115,7 @@ include 'link.php';
               
             </div>
          
-                    <form  method="post" action="新增活動後端.php" >
+                    <form  method="get" action="新增活動後端.php" >
                         <div class="row g-3 justify-content-center">
                             <div class="col-md-12">
                                 <div class="form-floating">
