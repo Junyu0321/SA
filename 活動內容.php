@@ -52,7 +52,7 @@
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-            <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
+            <a href="瀏覽活動.php" class="navbar-brand ms-4 ms-lg-0">
                 <img src="img/fju.png">
             </a>
             <h2 class="fw-bold text-black m-0">活動管理系統</h2> 
@@ -69,8 +69,8 @@
                         <a href="#" class="nav-link dropdown-toggle fw-bold" data-bs-toggle="dropdown">個人專區</a>
                         <div class="dropdown-menu m-0">
                             <a href="feature.html" class="dropdown-item">我的收藏</a>
-                            <a href="testimonial.html" class="dropdown-item">我的歷史</a>
-                            <a href="404.html" class="dropdown-item">舉辦過的活動</a>
+                            <a href="我的歷史.php" class="dropdown-item">我的報名</a>
+                            <a href="舉辦活動歷史.php" class="dropdown-item">舉辦過的活動</a>
                         </div>
                     </div>
                     <?php if(isset($_SESSION["user_name"])){ ?>
@@ -178,20 +178,23 @@
                     </div>
                 <?php } ?>
             </div><br>
+            <div class="col-md-14 grid-margin"> 
                 <?php if ($_SESSION["user_identity"] == '教職員') { ?>
-                    
-                    <div class="col-6">
-                        <button class="btn btn-primary rounded-pill py-3 px-5" onclick="location.href='新增場次.php?act_id=<?php echo $act_id ?>'">新增場次</button>
-                    </div><br>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-success rounded-pill py-3 px-5" onclick="location.href='刪除活動.php?act_id=<?php echo $act_id ?>'">刪除活動</button>
-                    </div><br>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-success rounded-pill py-3 px-5" onclick="location.href='修改活動.php?act_id=<?php echo $act_id ?>'">修改活動</button>
-                    </div>
-                     
+                    <div class="row">
+                        
+                        <div class="col-4">
+                            <button type="button" class="btn btn-success rounded-pill py-3 px-5" onclick="location.href='刪除活動.php?act_id=<?php echo $act_id ?>'">刪除活動</button>
+                        </div><br>
+                        <div class="col-4">
+                            <button type="button" class="btn btn-success rounded-pill py-3 px-5" onclick="location.href='修改活動.php?act_id=<?php echo $act_id ?>'">修改活動</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary rounded-pill py-3 px-5" onclick="location.href='新增場次.php?act_id=<?php echo $act_id ?>'">新增場次</button>
+                        </div><br>
+                    </div> 
                 <?php } ?>
                 <br>
+            </div>
             <div class="col-md-6 grid-margin stretch-card">
                 <?php
                 include 'link.php';
@@ -215,14 +218,38 @@
                             <p>地點：<?php echo $row["ses_location"] ?></p>
                             <p>已報名/總名額：<?php echo $row["ses_number"] ?></p>
                             <p>可報名者身份：<?php echo $row["ses_available"] ?></p>
-                            <!-- <p>報名狀態：開放報名中</p> -->
+
                             
-                            <?php if($_SESSION["user_identity"] == '教職員' or $_SESSION["user_identity"] ==  '校外人士' or $_SESSION["user_identity"] =='輔大學生') {?>
-                                <a class="btn btn-primary rounded-pill py-1 px-2" href="報名表單.php?ses_id=<?php echo $row["ses_id"] ?>&act_id=<?php echo $row["act_id"] ?>
-                                &act_name=<?php echo $row["act_name"] ?>">我要報名</a>
-                                <!-- <button type="button" class="btn btn-success rounded-pill py-3 px-5" onclick="location.href='報名表單.php'">報名</button> -->
-                                
-                            <?php } ?>
+                            <?php
+                                if ($_SESSION["user_identity"] == '教職員' or $_SESSION["user_identity"] ==  '校外人士' or $_SESSION["user_identity"] =='輔大學生') {
+                                    $isRegistered = false; // 預設為未報名
+
+                                    // 檢查帳號是否已經報名過這個活動，您可以根據實際情況替換成適當的程式碼
+                                    $act_id = $_GET["act_id"]; // 從 URL 參數取得活動 ID
+                                    $user_id = $_SESSION["user_id"]; // 從 Session 取得使用者 ID
+                                    $list_id = $_SESSION["list_id"];
+
+                                    // 假設您已經有一個名為 $link 的資料庫連線物件
+                                    $query = "SELECT * FROM list WHERE act_id = '$act_id' AND user_id = '$user_id'";
+                                    $result = mysqli_query($link, $query);
+                                    if ($result && mysqli_num_rows($result) > 0) {
+                                        $isRegistered = true; // 已報名
+                                        $row = mysqli_fetch_assoc($result); // 從結果集中獲取一行資料，存儲到 $row 中
+                                        ?>
+                                        <a class="btn btn-danger rounded-pill py-1 px-2" href="取消報名.php?list_id=<?php echo $row["list_id"] ?>&act_id=<?php echo $row["act_id"] ?>">取消報名</a>
+                                        
+                                        <?php
+                                    }
+
+                                    if (!$isRegistered) {
+                                        // 使用者未報名過，顯示報名按鈕
+                                        ?>
+                                        <a class="btn btn-primary rounded-pill py-1 px-2" href="報名表單.php?ses_id=<?php echo $row["ses_id"] ?>&act_id=<?php echo $row["act_id"] ?>&act_name=<?php echo $row["act_name"] ?>">我要報名</a>
+                                        <?php
+                                    }
+                                }
+                            ?>
+
                             <?php if ($_SESSION["user_identity"] == '教職員') { ?>
                                 <div class="col-6">
                                     <button class="btn btn-primary rounded-pill py-1 px-2" onclick="location.href='報名名單.php?ses_id=<?php echo $row['ses_id'] ?>&act_id=<?php echo $row['act_id'] ?>'">報名名單</button>

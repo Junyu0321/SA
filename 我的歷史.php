@@ -129,39 +129,28 @@ include 'link.php';
     <div class="container-xxl py-6">
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="display-5 mb-3">活動總表</h1>
+                <h1 class="display-5 mb-3">我的報名</h1>
             </div>
 
             <br>
             <div style="display: flex; align-items: center; justify-content: space-between;">
                     
-                    <a class="nav-item nav-search d-none d-lg-block">
-                        <form method="get" action="搜尋內容2.php">
-                        <nobr>
-                        <input type="text" class="form-control" name="keyword" placeholder="依關鍵字搜尋" style="display: inline-block">
-                        <button type="submit" class="btn btn-primary rounded-pill py-1 px-2">搜尋關鍵字</button>
-                        </nobr>
-                        </form>
-                    </a>
                     
-                    <a class="nav-item nav-search d-none d-lg-block">
-                        <form method="get" action="搜尋內容.php">
-                        <nobr>
-                        <input type="date" class="form-control" name="date" placeholder="Search Date" style="display: inline-block">
-                        <button type="submit" class="btn btn-primary rounded-pill py-1 px-2">搜尋日期</button>
-                        </nobr>
-                        
-                        </form>
-                    </a>
                 </div><br><br>
 
 
-            <form method="post" action="新增活動後端.php">
                 <div class="row g-4">
                     <?php
                     include 'link.php';
                     $act_id = $_SESSION['act_id'];
-                    $sql  = "select act_name, act_id, act_signup, act_signdue from activity ";
+                    $list_id = $_SESSION['list_id'];
+                    $ses_id = $_SESSION['ses_id'];
+                    $user_id = $_SESSION['user_id'];
+                    $sql = "SELECT * FROM list l
+                    INNER JOIN user u ON u.user_id = l.user_id
+                    INNER JOIN activity a ON a.act_id = l.act_id
+                    INNER JOIN session s ON s.ses_id = l.ses_id
+                    WHERE u.user_id = '$user_id'";
 
                     $result = mysqli_query($link, $sql);
 
@@ -187,9 +176,6 @@ include 'link.php';
                     <?php } ?>
 
             </form>
-            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                <a class="btn btn-primary rounded-pill py-3 px-5" href="">更多</a>
-            </div>
         </div>
     </div>
     </div>

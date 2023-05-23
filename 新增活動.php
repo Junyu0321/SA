@@ -53,7 +53,7 @@ include 'link.php';
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-            <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
+            <a href="瀏覽活動.php" class="navbar-brand ms-4 ms-lg-0">
                 <img src="img/fju.png">
             </a>
             <h2 class="fw-bold text-black m-0">活動管理系統</h2> 
@@ -69,8 +69,8 @@ include 'link.php';
                         <a href="#" class="nav-link dropdown-toggle fw-bold" data-bs-toggle="dropdown">個人專區</a>
                         <div class="dropdown-menu m-0">
                             <a href="feature.html" class="dropdown-item">我的收藏</a>
-                            <a href="testimonial.html" class="dropdown-item">我的歷史</a>
-                            <a href="404.html" class="dropdown-item">舉辦過的活動</a>
+                            <a href="我的歷史.php" class="dropdown-item">我的報名</a>
+                            <a href="舉辦活動歷史.php" class="dropdown-item">舉辦過的活動</a>
                         </div>
                     </div>
                     <?php if(isset($_SESSION["user_name"])){ ?>
@@ -169,7 +169,7 @@ include 'link.php';
                                       </select>
                                 </div>
                                 <div class="col-md-12" >
-                                    <label for="exampleSelectGender">類別</label>
+                                    <label for="exampleSelectGender">學群</label>
                                       <select class="form-control" id="act_category" name="act_category" required>
                                         <option>藝文</option>
                                         <option>學術</option>
@@ -261,6 +261,7 @@ include 'link.php';
                                         </div>
                                     </div>
                                     <div class="col-12">
+                                        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                                         <button class="btn btn-primary rounded-pill py-3 px-5" type="submit" id="myButton">提交</button>
                                     </div>
                                 </div>

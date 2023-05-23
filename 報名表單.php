@@ -53,7 +53,7 @@
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-            <a href="index.php" class="navbar-brand ms-4 ms-lg-0">
+            <a href="瀏覽活動.php" class="navbar-brand ms-4 ms-lg-0">
                 <img src="img/fju.png">
             </a>
             <h2 class="fw-bold text-black m-0">活動管理系統</h2> 
@@ -70,8 +70,8 @@
                         <a href="#" class="nav-link dropdown-toggle fw-bold" data-bs-toggle="dropdown">個人專區</a>
                         <div class="dropdown-menu m-0">
                             <a href="feature.html" class="dropdown-item">我的收藏</a>
-                            <a href="testimonial.html" class="dropdown-item">我的歷史</a>
-                            <a href="404.html" class="dropdown-item">舉辦過的活動</a>
+                            <a href="我的歷史.php" class="dropdown-item">我的報名</a>
+                            <a href="舉辦活動歷史.php" class="dropdown-item">舉辦過的活動</a>
                         </div>
                     </div>
                     <?php if(isset($_SESSION["user_name"])){ ?>
